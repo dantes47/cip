@@ -19,6 +19,13 @@ class CustomersController < ApplicationController
   # GET /customers/1/edit
   def edit; end
 
+  # IMPORT Data
+  def import
+    Customer.import(params[:data])
+
+    redirect_to customers_path
+  end
+
   # POST /customers or /customers.json
   def create
     @customer = Customer.new(customer_params)
