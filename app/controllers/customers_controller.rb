@@ -9,7 +9,7 @@ class CustomersController < ApplicationController
 
     respond_to do |fmt|
       fmt.html
-      fmt.csv { send_data @customers.to_csv(%w[first_name last_name email date_of_birth]) }
+      fmt.csv { send_data(@customers.to_csv(%w[first_name last_name email date_of_birth])) }
     end
   end
 
@@ -28,7 +28,7 @@ class CustomersController < ApplicationController
   def import
     Customer.import(params[:data])
 
-    redirect_to customers_path, notice: 'Customers successfully imported.'
+    redirect_to(customers_path, notice: 'Customers successfully imported.')
   end
 
   # POST /customers or /customers.json
@@ -38,11 +38,11 @@ class CustomersController < ApplicationController
     if @customer
       respond_to do |format|
         if @customer.save
-          format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
-          format.json { render :show, status: :created, location: @customer }
+          format.html { redirect_to(@customer, notice: 'Customer was successfully created.') }
+          format.json { render(:show, status: :created, location: @customer) }
         else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @customer.errors, status: :unprocessable_entity }
+          format.html { render(:new, status: :unprocessable_entity) }
+          format.json { render(json: @customer.errors, status: :unprocessable_entity) }
         end
       end
     end
@@ -52,21 +52,21 @@ class CustomersController < ApplicationController
   def update
     respond_to do |format|
       if @customer.update(customer_params)
-        format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @customer }
+        format.html { redirect_to(@customer, notice: 'Customer was successfully updated.') }
+        format.json { render(:show, status: :ok, location: @customer) }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
+        format.html { render(:edit, status: :unprocessable_entity) }
+        format.json { render(json: @customer.errors, status: :unprocessable_entity) }
       end
     end
   end
 
   # DELETE /customers/1 or /customers/1.json
   def destroy
-    @customer.destroy
+    @customer.destroy!
     respond_to do |format|
-      format.html { redirect_to customers_url, notice: 'Customer was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to(customers_url, notice: 'Customer was successfully destroyed.') }
+      format.json { head(:no_content) }
     end
   end
 

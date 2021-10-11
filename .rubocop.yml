@@ -1,0 +1,392 @@
+inherit_from:
+  - '.rubocop-rails.yml'
+  - '.rubocop-performance.yml'
+
+require:
+  - rubocop-rails
+  - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 2.7
+  TargetRailsVersion: 6.1
+  Exclude:
+    - '**/db/migrate/*'
+    - 'db/schema.rb'
+    - '**/Gemfile.lock'
+    - '**/Rakefile'
+    - '**/rails'
+    - '**/vendor/**/*'
+    - '**/spec_helper.rb'
+    - 'bin/*'
+
+Gemspec/DateAssignment:
+  Enabled: true
+
+Layout/ClassStructure:
+  ExpectedOrder:
+    - module_inclusion
+    - constants
+    - association
+    - public_attribute_macros
+    - public_delegate
+    - macros
+    - initializer
+    - public_class_methods
+    - public_methods
+    - protected_attribute_macros
+    - protected_methods
+    - private_attribute_macros
+    - private_delegate
+    - private_methods
+
+Layout/EmptyLineAfterMultilineCondition:
+  Enabled: true
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+
+Layout/LineEndStringConcatenationIndentation:
+  Enabled: true
+
+Layout/LineLength:
+  Max: 150
+  Exclude:
+    - '**/spec/**/*'
+
+Layout/MultilineArrayBraceLayout:
+  EnforcedStyle: new_line
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineHashBraceLayout:
+  EnforcedStyle: new_line
+
+Layout/MultilineHashKeyLineBreaks:
+  Enabled: true
+
+Layout/MultilineMethodCallBraceLayout:
+  EnforcedStyle: new_line
+
+Layout/MultilineMethodDefinitionBraceLayout:
+  EnforcedStyle: new_line
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Layout/SpaceBeforeBrackets:
+  Enabled: true
+
+Layout/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+
+Lint/AmbiguousAssignment:
+  Enabled: true
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - '**/spec/**/*'
+
+Lint/AssignmentInCondition:
+  AllowSafeAssignment: false
+
+Lint/BinaryOperatorWithIdenticalOperands:
+  Enabled: true
+
+Lint/DeprecatedConstants:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Lint/DuplicateBranch:
+  Enabled: true
+
+Lint/DuplicateElsifCondition:
+  Enabled: true
+
+Lint/DuplicateRegexpCharacterClassElement:
+  Enabled: true
+
+Lint/DuplicateRequire:
+  Enabled: true
+
+Lint/DuplicateRescueException:
+  Enabled: true
+
+Lint/EmptyBlock:
+  Enabled: true
+
+Lint/EmptyClass:
+  Enabled: true
+
+Lint/EmptyConditionalBody:
+  Enabled: true
+
+Lint/EmptyFile:
+  Enabled: true
+
+Lint/EmptyInPattern:
+  Enabled: true
+
+Lint/FloatComparison:
+  Enabled: true
+
+Lint/LambdaWithoutLiteralBlock:
+  Enabled: true
+
+Lint/MissingSuper:
+  Enabled: true
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+
+Lint/NoReturnInBeginEndBlocks:
+  Enabled: true
+
+Lint/NumberConversion:
+  Enabled: true
+
+Lint/NumberedParameterAssignment:
+  Enabled: true
+
+Lint/OrAssignmentToConstant:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/RedundantDirGlobSort:
+  Enabled: true
+
+Lint/SelfAssignment:
+  Enabled: true
+
+Lint/SymbolConversion:
+  Enabled: true
+
+Lint/ToEnumArguments:
+  Enabled: true
+
+Lint/TrailingCommaInAttributeDeclaration:
+  Enabled: true
+
+Lint/TripleQuotes:
+  Enabled: true
+
+Lint/UnexpectedBlockArity:
+  Enabled: true
+
+Lint/UnmodifiedReduceAccumulator:
+  Enabled: true
+
+Lint/UnusedBlockArgument:
+  IgnoreEmptyBlocks: false
+
+Lint/UnusedMethodArgument:
+  IgnoreEmptyMethods: false
+
+Lint/UselessMethodDefinition:
+  Enabled: true
+
+Metrics/AbcSize:
+ Max: 45
+
+Metrics/BlockLength:
+  CountComments: false
+  Max: 50
+  Exclude:
+    - '**/spec/**/*'
+    - '**/*.rake'
+    - '**/config/routes.rb'
+
+Metrics/ClassLength:
+  CountAsOne: ['array', 'hash']
+  Max: 150
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/MethodLength:
+  CountAsOne: ['array', 'hash']
+  Max: 30
+
+Metrics/ModuleLength:
+  CountAsOne: ['array', 'hash']
+  Max: 250
+  Exclude:
+    - '**/spec/**/*'
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Naming/InclusiveLanguage:
+  Enabled: true
+
+Style/AccessorGrouping:
+  Enabled: true
+
+Style/ArgumentsForwarding:
+  Enabled: true
+
+Style/ArrayCoercion:
+  Enabled: true
+
+Style/AutoResourceCleanup:
+  Enabled: true
+
+Style/BisectedAttrAccessor:
+  Enabled: true
+
+Style/CaseLikeIf:
+  Enabled: true
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/CollectionCompact:
+  Enabled: true
+
+Style/CollectionMethods:
+  Enabled: true
+
+Style/CombinableLoops:
+  Enabled: true
+
+Style/CommandLiteral:
+  EnforcedStyle: percent_x
+
+Style/ConstantVisibility:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/DocumentDynamicEvalDefinition:
+  Enabled: true
+
+Style/EndlessMethod:
+  Enabled: true
+
+Style/ExplicitBlockArgument:
+  Enabled: true
+
+Style/GlobalStdStream:
+  Enabled: true
+
+Style/HashConversion:
+  Enabled: true
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashExcept:
+  Enabled: true
+
+Style/HashLikeCase:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/IfWithBooleanLiteralBranches:
+  Enabled: true
+
+Style/ImplicitRuntimeError:
+  Enabled: true
+
+Style/InlineComment:
+  Enabled: true
+
+Style/InPatternThen:
+  Enabled: true
+
+Style/IpAddresses:
+  Enabled: true
+
+Style/KeywordParametersOrder:
+  Enabled: true
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: true
+
+Style/MissingElse:
+  Enabled: true
+
+Style/MultilineInPatternThen:
+  Enabled: true
+
+Style/MultilineMethodSignature:
+  Enabled: true
+
+Style/NegatedIfElseCondition:
+  Enabled: true
+
+Style/NilLambda:
+  Enabled: true
+
+Style/OptionalBooleanParameter:
+  Enabled: true
+
+Style/QuotedSymbols:
+  Enabled: true
+
+Style/RedundantArgument:
+  Enabled: true
+
+Style/RedundantAssignment:
+  Enabled: true
+
+Style/RedundantBegin:
+  Enabled: true
+
+Style/RedundantFetchBlock:
+  Enabled: true
+
+Style/RedundantFileExtensionInRequire:
+  Enabled: true
+
+Style/RedundantSelfAssignment:
+  Enabled: true
+
+Style/SingleArgumentDig:
+  Enabled: true
+
+Style/StringChars:
+  Enabled: true
+
+Style/StringConcatenation:
+  Enabled: true
+
+Style/SwapValues:
+  Enabled: true
+
+Style/GuardClause:
+  Enabled: false
+
+Style/MissingElse:
+  Enabled: false
+
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
+
+Rails/FilePath:
+  Enabled: false
+
+Style/InlineComment:
+  Enabled: false

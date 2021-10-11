@@ -10,7 +10,7 @@ class Customer < ApplicationRecord
   def self.to_csv(fields = column_names, opts = {})
     CSV.generate(opts) do |csv|
       csv << fields
-      all.each do |customer|
+      all.find_each do |customer|
         csv << customer.attributes.values_at(*fields)
       end
     end
@@ -18,19 +18,17 @@ class Customer < ApplicationRecord
 
   # import CSV
   def self.import(data)
-    begin
-      CSV.foreach(data.path, headers: true) do |row|
-        # customer = Customer.create!(row.to_hash)
-        hashed_data = row.to_hash
-        customer = find_or_create_by!(
-          first_name: hashed_data['first_name'],
-          email: hashed_data['email']
-        )
+    CSV.foreach(data.path, headers: true) do |row|
+      # customer = Customer.create!(row.to_hash)
+      hashed_data = row.to_hash
+      customer = find_or_create_by!(
+        first_name: hashed_data['first_name'],
+        email: hashed_data['email']
+      )
 
-        customer.update(hashed_data)
-      end
-    rescue StandardError => exception
-      puts exception.message # rescue, in case - user/admin will deside to push empty dataset.
+      customer.update!(hashed_data)
     end
+  rescue StandardError => err
+    Rails.logger.debug(err.message) # rescue, in case - user/admin will deside to push empty dataset.
   end
 end
