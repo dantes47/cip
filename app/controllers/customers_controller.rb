@@ -9,12 +9,12 @@ class CustomersController < ApplicationController
 
     @customers = @search.scope
 
-    # @customers = Customer.all
+    @customers = Customer.all
 
-    # respond_to do |fmt|
-    #   fmt.html
-    #   fmt.csv { send_data(@customers.to_csv(%w[first_name last_name email date_of_birth])) }
-    # end
+    respond_to do |fmt|
+      fmt.html
+      fmt.csv { send_data(@customers.to_csv(%w[first_name last_name email date_of_birth])) }
+    end
   end
 
   # GET /customers/1 or /customers/1.json
@@ -41,7 +41,7 @@ class CustomersController < ApplicationController
 
     if @customer
       respond_to do |format|
-        if @customer.save
+        if @customer.save!
           format.html { redirect_to(@customer, notice: 'Customer was successfully created.') }
           format.json { render(:show, status: :created, location: @customer) }
         else

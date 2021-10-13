@@ -27,7 +27,7 @@
           <li><%= link_to "Sign^In", new_user_session_path %></li>
         <% end %>
       </ul>
-    </div>
+    
 
     <% if flash[:notice] %>
       <div class="alert alert-success">
@@ -40,11 +40,12 @@
         <%= flash[:error] %>
       </div>
       <% elsif flash[:alert] %>
-        <div class="alert">
+        <div class="alert alert-warning">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
           <%= flash[:alert] %>
         </div>
     <% end %>
+  </div>
 
     <%= yield %>
     
