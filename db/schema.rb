@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_10_09_090552) do
   create_table "customers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "email", null: false
+    t.string "email"
     t.string "date_of_birth"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

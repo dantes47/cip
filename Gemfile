@@ -18,12 +18,13 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Styling
 gem 'active_storage_validations'
 gem 'bootstrap_progressbar'
 gem 'bootstrap-sass', '~> 3.4.1'
+gem 'devise'
 gem 'jquery-rails'
 gem 'sassc-rails', '>= 2.1.0'
 
