@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'customers#index'
+  get 'home/index'
+  get 'home/about'
+  get 'home/info'
+  get 'home/contact'
+
+  root 'home#index'
 
   resources :customers do
     collection { post :import }

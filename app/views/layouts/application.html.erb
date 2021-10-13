@@ -11,6 +11,13 @@
   </head>
 
   <body>
+
     <%= yield %>
+    
+    <%= link_to "Home", root_path %>
+    <%= link_to "Customers", customers_path %>
+    <%= link_to "About Us", home_about_path %>
+    <%= link_to "Info", home_info_path %>
+    <%= link_to "Contact Us", home_contact_path %>
   </body>
 </html>
