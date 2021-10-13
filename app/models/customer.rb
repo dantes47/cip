@@ -30,7 +30,7 @@ class Customer < ApplicationRecord
 
       customer.update!(hashed_data)
     end
-  rescue StandardError => err
-    Rails.logger.debug(err.message) # rescue, in case - user/admin will deside to push empty dataset.
+  rescue StandardError => e
+    Rails.logger.debug(e.message) # rescue, in case - user/admin will deside to push empty dataset.
   end
 end

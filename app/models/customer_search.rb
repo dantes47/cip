@@ -7,7 +7,7 @@ class CustomerSearch
     prms ||= {}
 
     @date_from = parsed_date(prms[:date_from], 5.days.ago.to_date.to_s)
-    @date_to = parsed_date(prms[:date_to], Date.today.to_s)
+    @date_to = parsed_date(prms[:date_to], Time.zone.today.to_s)
   end
 
   def scope

@@ -8,7 +8,6 @@ class CustomersController < ApplicationController
     @search = CustomerSearch.new(params[:search])
 
     @customers = @search.scope
-
     @customers = Customer.all
 
     respond_to do |fmt|
@@ -34,6 +33,21 @@ class CustomersController < ApplicationController
 
     redirect_to(customers_path, notice: 'Customers successfully imported.')
   end
+
+  # def import
+  #   data = File.join Rails.root, 'db', 'data.csv'
+  #   ImportWorker.perform_async(data)
+
+  #   flash[:notice] = 'Data is added into App'
+  #   redirect_to customers_path
+  # end
+
+  # def destroy_all
+  #   DestroyWorker.perform_async
+  #   flash[:notice] = 'Data was removed from App'
+
+  #   redirect_to customers_path
+  # end
 
   # POST /customers or /customers.json
   def create

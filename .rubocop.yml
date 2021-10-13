@@ -39,6 +39,9 @@ Layout/ClassStructure:
     - private_delegate
     - private_methods
 
+Layout/LineLength:
+  Enabled: false
+
 Layout/EmptyLineAfterMultilineCondition:
   Enabled: true
 
