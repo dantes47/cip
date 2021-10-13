@@ -5,12 +5,16 @@ class CustomersController < ApplicationController
 
   # GET /customers or /customers.json
   def index
-    @customers = Customer.all
+    @search = CustomerSearch.new(params[:search])
 
-    respond_to do |fmt|
-      fmt.html
-      fmt.csv { send_data(@customers.to_csv(%w[first_name last_name email date_of_birth])) }
-    end
+    @customers = @search.scope
+
+    # @customers = Customer.all
+
+    # respond_to do |fmt|
+    #   fmt.html
+    #   fmt.csv { send_data(@customers.to_csv(%w[first_name last_name email date_of_birth])) }
+    # end
   end
 
   # GET /customers/1 or /customers/1.json
@@ -79,6 +83,6 @@ class CustomersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def customer_params
-    params.require(:customer).permit(:first_name, :last_name, :email, :date_of_birth)
+    params.require(:customer).permit(:date, :first_name, :last_name, :email, :date_of_birth)
   end
 end
