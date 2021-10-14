@@ -35,7 +35,7 @@ class CustomersController < ApplicationController
   end
 
   # def import
-  #   data = File.join Rails.root, 'db', 'data.csv'
+  #   data = File.join Rails.root, 'db', 'data.csv' # not the case..
   #   ImportWorker.perform_async(data)
 
   #   flash[:notice] = 'Data is added into App'

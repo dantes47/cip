@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ImportWorker
+  require 'csv'
+
   include Sidekiq::Worker
   sidekiq_options retry: false
 
